@@ -9,9 +9,6 @@ Centos6:
     - ansible-playbook --syntax-check -i tests/inventory tests/test.yml
     - ansible-playbook -i tests/inventory tests/test.yml --connection=local -u root --become-user=root
     - ansible-playbook -i tests/inventory tests/test.yml --connection=local -u root --become-user=root | grep 'changed=0.*failed=0' || exit 1
-    - which vim || exit 1
-    - which tmux || exit 1
-    - which mc || exit 1
     
 Centos7:
   image: "centos:7"
@@ -23,9 +20,6 @@ Centos7:
     - ansible-playbook --syntax-check -i tests/inventory tests/test.yml
     - ansible-playbook -i tests/inventory tests/test.yml --connection=local -u root --become-user=root
     - ansible-playbook -i tests/inventory tests/test.yml --connection=local -u root --become-user=root | grep 'changed=0.*failed=0' || exit 1
-    - which vim || exit 1
-    - which tmux || exit 1
-    - which mc || exit 1
     
 Ubuntu14:
   image: "ubuntu:14.04"
@@ -37,9 +31,6 @@ Ubuntu14:
     - ansible-playbook --syntax-check -i tests/inventory tests/test.yml
     - ansible-playbook -i tests/inventory tests/test.yml --connection=local -u root --become-user=root
     - ansible-playbook -i tests/inventory tests/test.yml --connection=local -u root --become-user=root | grep 'changed=0.*failed=0' || exit 1
-    - which vim || exit 1
-    - which tmux || exit 1
-    - which mc || exit 1
     
 Ubuntu16:
   image: "ubuntu:16.04"
@@ -50,6 +41,3 @@ Ubuntu16:
     - ansible-playbook --syntax-check -i tests/inventory tests/test.yml
     - ansible-playbook -i tests/inventory tests/test.yml --connection=local -u root --become-user=root
     - ansible-playbook -i tests/inventory tests/test.yml --connection=local -u root --become-user=root | grep 'changed=0.*failed=0' || exit 1
-    - which vim || exit 1
-    - which tmux || exit 1
-    - which mc || exit 1
