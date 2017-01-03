@@ -1,0 +1,19 @@
+---
+- hosts: all
+  vars:
+    users:
+      - name: testuser1
+					home: /home/testuser
+					password: $6$oVAFzWi.f/jANRo$mjWmePPgLULif8EK2TBxnQECgqtJZHX9YsAyrs9ENm.ymMZ8BzHCVG.66v3BcSs3VGlGzj2Hli7Zhso6uZn0Q.
+					shell: /bin/bash
+					bashrc_lines: |
+						# Perlbrew
+						source ~/perl5/perlbrew/etc/bashrc
+      - name: testuser1
+					home: /home/testuser
+					password: $6$oVAFzWi.f/jANRo$mjWmePPgLULif8EK2TBxnQECgqtJZHX9YsAyrs9ENm.ymMZ8BzHCVG.66v3BcSs3VGlGzj2Hli7Zhso6uZn0Q.
+					shell: /bin/bash
+					manage_vimrc: yes
+					manage_tmuxconf: yes
+  roles:
+    - ansible-users
