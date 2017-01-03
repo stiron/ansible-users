@@ -1,0 +1,48 @@
+---
+- name: Set up the users
+  user:
+    name: "{{ item.name }}"
+    shell: "{{ item.shell|default('/bin/bash') }}"
+    password: "{{ item.password }}"
+    home: "{{ item.home }}"
+  with_items: "{{ users }}"
+  tags:
+    - users
+
+- name: Configure the .bashrc
+  blockinfile:
+    dest: "{{ item.home }}/.bashrc"
+    block: "{{ item.bashrc_lines|default('') }}"
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+    state: present
+  with_items: "{{ users }}"
+  tags:
+    - users
+
+- name: Configure .vimrc
+  copy:
+    src: vimrc
+    dest: "{{ item.home }}/.vimrc"
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+    mode: 0644
+  with_items: "{{ users }}"
+  when: item.manage_vimrc is defined 
+  tags:
+    - users
+    - vim_config
+
+- name: Configure .tmux.conf
+  copy:
+    src: "tmux.conf"
+    dest: "{{ item.home }}/.tmux.conf"
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+    mode: 0644
+  with_items: "{{ users }}"
+  when: item.manage_tmuxconf is defined 
+  tags:
+    - users
+    - tmux_config
+
