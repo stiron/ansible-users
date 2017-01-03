@@ -33,14 +33,19 @@ users:
 ### Mandatory variables
 
 `name` - the name of the user
+
 `home` - the home directory of the user
+
 `password` - encrypted password
 
 ### Optional variables
 
 `shell` - the default shell of the user (defaults to /bin/bash)
+
 `manage_vimrc` - use a default vimrc file
+
 `manage_tmuxconf` - use a well-configured tmux configuration file
+
 `bashrc_lines` - a block of data to be inserted into the ~/.bashrc
 
 ## Examples
