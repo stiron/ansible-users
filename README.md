@@ -15,6 +15,7 @@ users:
     password: $6$7MbxEXX0Kgj61$vvVl2K/mrv/1qvID6TUH6wM/0.Q8juBLx6RcWPh/JiGHAdVcoU9I6d6NgprxMZ210z1.gfC/OeR49eugTmEmX/
     manage_vimrc: yes
     manage_tmuxconf: yes
+    ssh_keys: ed25519 abc123 user@host
     bashrc_lines: |
       # Perlbrew
       source ~/perl5/perlbrew/etc/bashrc
@@ -47,6 +48,8 @@ users:
 `manage_tmuxconf` - use a well-configured tmux configuration file
 
 `bashrc_lines` - a block of data to be inserted into the ~/.bashrc
+
+`ssh_key` - a string or URL for the pub key of the user to be deployed as athorized key
 
 ## Examples
 
