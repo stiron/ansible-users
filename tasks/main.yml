@@ -9,6 +9,17 @@
   tags:
     - users
 
+- name: Deploy the authorized_keys
+  authorized_key:
+    key: "{{ item.ssh_key }}"
+    user: "{{ item.name }}"
+    state: present
+    exclusive: yes
+  with_items: "{{ users }}"
+  tags:
+    - users
+  when: item.ssh_key is defined
+
 - name: Configure the .bashrc
   blockinfile:
     dest: "{{ item.home }}/.bashrc"
