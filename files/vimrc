@@ -10,11 +10,11 @@ let mapleader = ","
 nnoremap <leader>ev :e $MYVIMRC<CR>
 
 " use ,sv to reload the .vimrc file
-:nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " quote a word
-:nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
-:nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
+nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 
 " use jk in insert mode to switch to normal mode
 inoremap jk <Esc>
