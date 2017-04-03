@@ -49,7 +49,7 @@ users:
 
 `bashrc_lines` - a block of data to be inserted into the ~/.bashrc
 
-`ssh_key` - a string or URL for the pub key of the user to be deployed as athorized key
+`ssh_public_key` - a string or URL for the pub key of the user to be deployed as athorized key
 
 ## Examples
 
