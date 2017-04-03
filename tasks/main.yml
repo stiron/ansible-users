@@ -1,5 +1,5 @@
 ---
-- name: Set up the users
+- name: Set up the user accounts
   user:
     name: "{{ item.name }}"
     shell: "{{ item.shell|default('/bin/bash') }}"
@@ -11,7 +11,7 @@
 
 - name: Deploy the authorized_keys
   authorized_key:
-    key: "{{ item.ssh_key }}"
+    key: "{{ item.ssh_public_key }}"
     user: "{{ item.name }}"
     state: present
     exclusive: yes

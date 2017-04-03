@@ -15,5 +15,6 @@
         shell: /bin/bash
         manage_vimrc: yes
         manage_tmuxconf: yes
+        ssh_public_key: secret 123key456
   roles:
     - ansible-users
