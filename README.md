@@ -15,6 +15,7 @@ users:
     password: $6$7MbxEXX0Kgj61$vvVl2K/mrv/1qvID6TUH6wM/0.Q8juBLx6RcWPh/JiGHAdVcoU9I6d6NgprxMZ210z1.gfC/OeR49eugTmEmX/
     manage_vimrc: yes
     manage_tmuxconf: yes
+	manage_emacs: yes
     ssh_public_key: ed25519 abc123 user@host
     bashrc_lines: |
       # Perlbrew
@@ -46,6 +47,8 @@ users:
 `manage_vimrc` - use a default vimrc file
 
 `manage_tmuxconf` - use a well-configured tmux configuration file
+
+`manage_emacs` - use my preconfigured .emacs file
 
 `bashrc_lines` - a block of data to be inserted into the ~/.bashrc
 

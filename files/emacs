@@ -1,0 +1,66 @@
+;; show line numbers on the right margin
+(global-linum-mode 1)
+
+;; no toolbar, no menubar
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+
+;; packages to install
+(setq package-list '(
+		     abyss-theme
+		     org
+		     org-bullets
+		     yaml-mode
+		     markdown-mode
+		     ansible
+		     python-mode
+		     company
+		     company-ansible
+		     magit
+		     ))
+
+;; package repos
+(setq package-archives '(
+			 ("melpa" . "https://melpa.org/packages/")
+			 ("org" . "http://orgmode.org/elpa/")
+			 ))
+
+;; activate package repos
+(package-initialize)
+
+;; fetch the list of packages available 
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
+;; use the abyss-theme in GUI
+(if (display-graphic-p)
+    (load-theme #'abyss t))
+
+;; backup files into the ~/.emacs.d/backups
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
+
+;; bullets in org mode instead of asterisks
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+;; use company mode on all buffers
+(add-hook 'after-init-hook 'global-company-mode)
+
+;; use the ansible-company mode
+(require 'company-ansible)
+(add-to-list 'company-backends 'company-ansible)
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 2)
+(setq company-show-numbers t)
+(setq company-dabbrev-other-buffers t)
+
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-iswitchb)

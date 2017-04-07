@@ -20,6 +20,19 @@
     - users
   when: item.ssh_key is defined
 
+- name: Configure the .emacs
+  copy:
+    src: emacs
+    dest: "{{ item.home }}/.emacs"
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+    mode: 0644
+  with_items: "{{ users }}"
+  tags:
+    - users
+    - emacs_config
+  when: item.manage_emacs is defined
+
 - name: Configure the .bashrc
   blockinfile:
     dest: "{{ item.home }}/.bashrc"
@@ -30,6 +43,7 @@
   with_items: "{{ users }}"
   tags:
     - users
+    - bash_config
 
 - name: Configure the .vimrc
   copy:
