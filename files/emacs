@@ -16,7 +16,6 @@
 		     python-mode
 		     company
 		     company-ansible
-		     magit
 		     ))
 
 ;; package repos
@@ -60,7 +59,5 @@
 (setq company-show-numbers t)
 (setq company-dabbrev-other-buffers t)
 
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-cb" 'org-iswitchb)
+;; see matching pairs of parentheses
+(show-paren-mode 1)
