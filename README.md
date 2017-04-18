@@ -44,9 +44,9 @@ users:
 
 `shell` - the default shell of the user (defaults to /bin/bash)
 
-`manage_vimrc` - use a default vimrc file
+`manage_vimrc` - use a preconfigured vimrc file
 
-`manage_tmuxconf` - use a well-configured tmux configuration file
+`manage_tmuxconf` - use a preconfigured tmux configuration file
 
 `manage_emacs` - use my preconfigured .emacs file
 
@@ -68,8 +68,8 @@ None
 
 ## License
 
-BSD
+MIT
 
 ## Author
 
-Tamas Molnar
+Tamas Molnar - <tmolnar0831@gmail.com>
