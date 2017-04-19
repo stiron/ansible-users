@@ -5,6 +5,9 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 
+;; save history
+(savehist-mode 1)
+
 ;; packages to install
 (setq package-list '(
 		     abyss-theme
@@ -61,3 +64,12 @@
 
 ;; see matching pairs of parentheses
 (show-paren-mode 1)
+
+;; spaces instead of tabs
+(setq-default indent-tabs-mode nil)
+
+;; ediff split mode
+(setq ediff-split-window-function 'split-window-horizontally)
+
+;; ediff don't care about whitespaces
+(setq ediff-diff-options "-w")
