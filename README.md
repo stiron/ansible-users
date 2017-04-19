@@ -16,7 +16,9 @@ users:
     manage_vimrc: yes
     manage_tmuxconf: yes
 	manage_emacs: yes
-    ssh_public_key: ed25519 abc123 user@host
+    authorized:
+        - ed25519 abc123 user@host
+        - rsa abc345 user2@host
     bashrc_lines: |
       # Perlbrew
       source ~/perl5/perlbrew/etc/bashrc
@@ -52,7 +54,7 @@ users:
 
 `bashrc_lines` - a block of data to be inserted into the ~/.bashrc
 
-`ssh_public_key` - a string or URL for the pub key of the user to be deployed as athorized key
+`authorized` - a list of the pub keys of the user to be deployed
 
 ## Examples
 

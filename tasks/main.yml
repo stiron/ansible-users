@@ -9,16 +9,18 @@
   tags:
     - users
 
-- name: Deploy the authorized_keys
+- name: Deploy the authorized_key
   authorized_key:
-    key: "{{ item.ssh_public_key }}"
-    user: "{{ item.name }}"
+    user: "{{ item.0.name }}"
+    key: "{{ item.1 }}"
     state: present
-    exclusive: yes
-  with_items: "{{ users }}"
+  with_subelements:
+    - "{{ users }}"
+    - authorized
+    - skip_missing: yes
   tags:
     - users
-  when: item.ssh_key is defined
+  when: item.1 is defined
 
 - name: Configure the .emacs
   copy:

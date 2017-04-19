@@ -12,10 +12,11 @@
       - name: testuser2
         home: /home/testuser2
         password: $6$oVAFzWi.f/jANRo$mjWmePPgLULif8EK2TBxnQECgqtJZHX9YsAyrs9ENm.ymMZ8BzHCVG.66v3BcSs3VGlGzj2Hli7Zhso6uZn0Q.
-        shell: /bin/bash
         manage_vimrc: yes
         manage_tmuxconf: yes
         manage_emacs: yes
-        ssh_public_key: secret 123key456
+        authorized:
+          - 'another 123key456'
+          - 'secret 123key456'
   roles:
     - ansible-users
