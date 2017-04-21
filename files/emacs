@@ -19,6 +19,7 @@
 		     python-mode
 		     company
 		     company-ansible
+                     undo-tree
 		     ))
 
 ;; package repos
@@ -76,3 +77,6 @@
 
 ;; ediff don't care about whitespaces
 (setq ediff-diff-options "-w")
+
+;; global undo tree mode
+(global-undo-tree-mode)
