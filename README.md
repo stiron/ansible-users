@@ -13,9 +13,9 @@ users:
   - name: tmolnar
     home: /home/tmolnar
     password: $6$7MbxEXX0Kgj61$vvVl2K/mrv/1qvID6TUH6wM/0.Q8juBLx6RcWPh/JiGHAdVcoU9I6d6NgprxMZ210z1.gfC/OeR49eugTmEmX/
-    manage_vimrc: yes
-    manage_tmuxconf: yes
-	manage_emacs: yes
+    manage_vimrc: yes # Either yes or leave this key out
+    manage_tmuxconf: yes # Either yes or leave this key out
+	manage_emacs: yes # Either yes or leave this key out
     authorized:
         - ed25519 abc123 user@host
         - rsa abc345 user2@host
