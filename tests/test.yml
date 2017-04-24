@@ -18,5 +18,17 @@
         authorized:
           - 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDxhKxvmOh6YmYoYyNeg7O+xx7R0ZKLQIDCCnYGsUj9R'
           - 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP4esz4V0WuyRAqzgaOw1prO4Sjt+Oqoz4c8ofXA5JhA'
+        private_keys:
+          - file: /home/testuser2/.ssh/key.priv
+            content: |
+              This is the private key of the user
+        public_keys:
+          - file: /home/testuser2/.ssh/key1.pubkey
+            content: |
+              This is the public key number one
+          - file: /home/testuser2/.ssh/key2.pubkey
+            content: |
+              This is the public key number two
+              
   roles:
     - ansible-users

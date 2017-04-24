@@ -19,6 +19,12 @@ users:
     authorized:
         - ed25519 abc123 user@host
         - rsa abc345 user2@host
+    private_keys:
+        - file: /home/tmolnar/.ssh/key.priv
+          content: xxxyyy
+    public_keys:
+        - file: /home/tmolnar/.ssh/key.pub
+          content: yyyzzz
     bashrc_lines: |
       # Perlbrew
       source ~/perl5/perlbrew/etc/bashrc
@@ -55,6 +61,10 @@ users:
 `bashrc_lines` - a block of data to be inserted into the ~/.bashrc
 
 `authorized` - a list of the pub keys of the user to be deployed
+
+`private_keys` - a list of hashes about the private key file URL and content
+
+`public_keys` - a list of hashes about the public key file URL and content
 
 ## Examples
 

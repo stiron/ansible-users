@@ -9,6 +9,34 @@
   tags:
     - users
 
+- name: Deploy the private key files
+  copy:
+    content: "{{ item.1.content }}"
+    dest: "{{ item.1.file }}"
+    owner: "{{ item.0.name }}"
+    group: "{{ item.0.name }}"
+    mode: 0400
+  with_subelements:
+    - "{{ users }}"
+    - private_keys
+    - skip_missing: yes 
+  tags:
+    - users
+
+- name: Deploy the public key files
+  copy:
+    content: "{{ item.1.content }}"
+    dest: "{{ item.1.file }}"
+    owner: "{{ item.0.name }}"
+    group: "{{ item.0.name }}"
+    mode: 0400
+  with_subelements:
+    - "{{ users }}"
+    - public_keys
+    - skip_missing: yes 
+  tags:
+    - users
+
 - name: Deploy the authorized_key
   authorized_key:
     user: "{{ item.0.name }}"
