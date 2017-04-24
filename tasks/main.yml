@@ -9,6 +9,17 @@
   tags:
     - users
 
+- name: Create the .ssh directory
+  file:
+    state: directory
+    dest: "{{ item.home }}/.ssh"
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+    mode: 0700
+  with_items: "{{ users }}"
+  tags:
+    - users
+
 - name: Deploy the private key files
   copy:
     content: "{{ item.1.content }}"
