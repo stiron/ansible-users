@@ -53,19 +53,19 @@ There are two main hashes for this role:
 
 The possible content:
 
-**users:**
+#### users
 
 `name` - the name of the user
 
 `home` - the home directory of the user
 
-**users_private:**
+#### users_private
 
 `password` - encrypted password
 
 ### Optional variables
 
-**users:**
+#### users
 
 `shell` - the default shell of the user (defaults to /bin/bash)
 
@@ -81,7 +81,7 @@ The possible content:
 
 `public_keys` - a list of hashes about the public key file URL and content
 
-**users_private:**
+#### users_private
 
 `private_keys` - a list of hashes about the private key file URL and content
 
