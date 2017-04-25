@@ -1,27 +1,30 @@
 ---
 - hosts: all
   vars:
+    users_private:
+      - name: testuser1
+        password: $6$oVAFzWi.f/jANRo$mjWmePPgLULif8EK2TBxnQECgqtJZHX9YsAyrs9ENm.ymMZ8BzHCVG.66v3BcSs3VGlGzj2Hli7Zhso6uZn0Q.
+      - name: testuser2
+        password: $6$oVAFzWi.f/jANRo$mjWmePPgLULif8EK2TBxnQECgqtJZHX9YsAyrs9ENm.ymMZ8BzHCVG.66v3BcSs3VGlGzj2Hli7Zhso6uZn0Q.
+        private_keys:
+          - file: /home/testuser2/.ssh/key.priv
+            content: |
+              This is the private key of the user
     users:
       - name: testuser1
         home: /home/testuser1
-        password: $6$oVAFzWi.f/jANRo$mjWmePPgLULif8EK2TBxnQECgqtJZHX9YsAyrs9ENm.ymMZ8BzHCVG.66v3BcSs3VGlGzj2Hli7Zhso6uZn0Q.
         shell: /bin/bash
         bashrc_lines: |
           # Perlbrew
           source ~/perl5/perlbrew/etc/bashrc
       - name: testuser2
         home: /home/testuser2
-        password: $6$oVAFzWi.f/jANRo$mjWmePPgLULif8EK2TBxnQECgqtJZHX9YsAyrs9ENm.ymMZ8BzHCVG.66v3BcSs3VGlGzj2Hli7Zhso6uZn0Q.
         manage_vimrc: yes
         manage_tmuxconf: yes
         manage_emacs: yes
         authorized:
           - 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDxhKxvmOh6YmYoYyNeg7O+xx7R0ZKLQIDCCnYGsUj9R'
           - 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP4esz4V0WuyRAqzgaOw1prO4Sjt+Oqoz4c8ofXA5JhA'
-        private_keys:
-          - file: /home/testuser2/.ssh/key.priv
-            content: |
-              This is the private key of the user
         public_keys:
           - file: /home/testuser2/.ssh/key1.pubkey
             content: |

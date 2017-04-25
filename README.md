@@ -9,19 +9,22 @@ This module requires Ansible 2.x version.
 ## Role variables
 
 ```
+users_private:
+  - name: tmolnar
+    password: $6$7MbxEXX0Kgj61$vvVl2K/mrv/1qvID6TUH6wM/0.Q8juBLx6RcWPh/JiGHAdVcoU9I6d6NgprxMZ210z1.gfC/OeR49eugTmEmX/
+    private_keys:
+        - file: /home/tmolnar/.ssh/key.priv
+          content: xxxyyy
+    
 users:
   - name: tmolnar
     home: /home/tmolnar
-    password: $6$7MbxEXX0Kgj61$vvVl2K/mrv/1qvID6TUH6wM/0.Q8juBLx6RcWPh/JiGHAdVcoU9I6d6NgprxMZ210z1.gfC/OeR49eugTmEmX/
     manage_vimrc: yes # Either yes or leave this key out
     manage_tmuxconf: yes # Either yes or leave this key out
 	manage_emacs: yes # Either yes or leave this key out
     authorized:
         - ed25519 abc123 user@host
         - rsa abc345 user2@host
-    private_keys:
-        - file: /home/tmolnar/.ssh/key.priv
-          content: xxxyyy
     public_keys:
         - file: /home/tmolnar/.ssh/key.pub
           content: yyyzzz
@@ -42,13 +45,26 @@ users:
 
 ### Mandatory variables
 
+There are two main hashes:
+
+`users`: the content will be logged
+`users_private`: the content will NOT be logged
+
+The possible content:
+
+`users`:
+
 `name` - the name of the user
 
 `home` - the home directory of the user
 
+`users_private`:
+
 `password` - encrypted password
 
 ### Optional variables
+
+`users`:
 
 `shell` - the default shell of the user (defaults to /bin/bash)
 
@@ -62,9 +78,11 @@ users:
 
 `authorized` - a list of the pub keys of the user to be deployed
 
-`private_keys` - a list of hashes about the private key file URL and content
-
 `public_keys` - a list of hashes about the public key file URL and content
+
+`users_private`:
+
+`private_keys` - a list of hashes about the private key file URL and content
 
 ## Examples
 

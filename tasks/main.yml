@@ -3,9 +3,17 @@
   user:
     name: "{{ item.name }}"
     shell: "{{ item.shell|default('/bin/bash') }}"
-    password: "{{ item.password }}"
     home: "{{ item.home }}"
   with_items: "{{ users }}"
+  tags:
+    - users
+      
+- name: Set up the user password 
+  user:
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"
+  with_items: "{{ users_private }}"
+  no_log: yes
   tags:
     - users
 
@@ -28,9 +36,10 @@
     group: "{{ item.0.name }}"
     mode: 0400
   with_subelements:
-    - "{{ users }}"
+    - "{{ users_private }}"
     - private_keys
-    - skip_missing: yes 
+    - skip_missing: yes
+  no_log: yes
   tags:
     - users
 
