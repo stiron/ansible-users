@@ -45,26 +45,27 @@ users:
 
 ### Mandatory variables
 
-There are two main hashes:
+There are two main hashes for this role:
 
-`users`: the content will be logged
-`users_private`: the content will NOT be logged
+**users:** the content will be logged
+
+**users_private:** the content will **NOT** be logged
 
 The possible content:
 
-`users`:
+**users:**
 
 `name` - the name of the user
 
 `home` - the home directory of the user
 
-`users_private`:
+**users_private:**
 
 `password` - encrypted password
 
 ### Optional variables
 
-`users`:
+**users:**
 
 `shell` - the default shell of the user (defaults to /bin/bash)
 
@@ -80,7 +81,7 @@ The possible content:
 
 `public_keys` - a list of hashes about the public key file URL and content
 
-`users_private`:
+**users_private:**
 
 `private_keys` - a list of hashes about the private key file URL and content
 
