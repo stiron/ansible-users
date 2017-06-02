@@ -1,6 +1,9 @@
 ;; show line numbers on the right margin
 (global-linum-mode 1)
 
+;; no startup screen
+(setq inhibit-startup-screen 1)
+
 ;; no toolbar, no menubar
 (tool-bar-mode -1)
 (menu-bar-mode -1)
