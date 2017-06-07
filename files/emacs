@@ -11,7 +11,7 @@
 ;; save history
 (savehist-mode 1)
 
-;; packages to install
+;; package list to install
 (setq package-list '(
 		     abyss-theme
 		     org
@@ -23,18 +23,21 @@
 		     company
 		     company-ansible
                      undo-tree
+                     python-mode
+                     jinja2-mode
+                     circe
 		     ))
 
-;; package repos
+;; package repos to install from
 (setq package-archives '(
 			 ("melpa" . "https://melpa.org/packages/")
 			 ("org" . "http://orgmode.org/elpa/")
 			 ))
 
-;; activate package repos
+;; reload package repos
 (package-initialize)
 
-;; fetch the list of packages available 
+;; fetch the list of available packages 
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -83,3 +86,10 @@
 
 ;; global undo tree mode
 (global-undo-tree-mode)
+
+;; circe IRC client configuration
+(setq circe-network-options
+      '(("Freenode"
+         :nick "st_iron_emacs"
+         )))
+
