@@ -1,3 +1,6 @@
+;; start emacs-server
+(server-start)
+
 ;; show line numbers on the right margin
 (global-linum-mode 1)
 
