@@ -91,5 +91,6 @@
 (setq circe-network-options
       '(("Freenode"
          :nick "st_iron_emacs"
+         :channels ("#goatops" "#cooks")
          )))
 
