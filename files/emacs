@@ -29,6 +29,7 @@
                      python-mode
                      jinja2-mode
                      circe
+                     magit
 		     ))
 
 ;; package repos to install from
