@@ -4,6 +4,9 @@
 ;; show line numbers on the right margin
 (global-linum-mode 1)
 
+;; C-n adds new lines in the end of the buffer
+(setq next-line-add-newlines 1)
+
 ;; no startup screen
 (setq inhibit-startup-screen 1)
 
@@ -11,7 +14,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 
-;; save history
+;; save minibuffer history
 (savehist-mode 1)
 
 ;; package list to install
