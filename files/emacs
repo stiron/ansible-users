@@ -31,7 +31,6 @@
                      undo-tree
                      python-mode
                      jinja2-mode
-                     circe
                      magit
 		     ))
 
@@ -84,6 +83,9 @@
 (setq company-show-numbers t)
 (setq company-dabbrev-other-buffers t)
 
+;; load jinja2-mode on j2 files
+(add-to-list 'auto-mode-alist '("\\.j2\\'" . jinja2-mode))
+
 ;; see matching pairs of parentheses
 (show-paren-mode 1)
 
@@ -98,11 +100,3 @@
 
 ;; global undo tree mode
 (global-undo-tree-mode)
-
-;; circe IRC client configuration
-(setq circe-network-options
-      '(("Freenode"
-         :nick "st_iron_emacs"
-         :channels ("#goatops" "#cooks")
-         )))
-
