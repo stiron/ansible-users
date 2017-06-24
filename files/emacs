@@ -1,20 +1,22 @@
-;; start emacs-server
+;; start emacs as a server
 (server-start)
 
 ;; show line numbers on the right margin
 (global-linum-mode 1)
 
-;; C-n adds new lines in the end of the buffer
+;; C-n adds new lines at the end of the buffer
 (setq next-line-add-newlines 1)
 
 ;; no startup screen
 (setq inhibit-startup-screen 1)
 
-;; no toolbar, no menubar
+;; no toolbar
 (tool-bar-mode -1)
+
+;; no menubar
 (menu-bar-mode -1)
 
-;; save minibuffer history
+;; save the minibuffer history
 (savehist-mode 1)
 
 ;; package list to install
@@ -69,7 +71,7 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
-;; use ansible mode
+;; use ansible mode 
 (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
 
 ;; use company mode on all buffers
@@ -83,16 +85,16 @@
 (setq company-show-numbers t)
 (setq company-dabbrev-other-buffers t)
 
-;; load jinja2-mode on j2 files
+;; load jinja2-mode on .j2 files
 (add-to-list 'auto-mode-alist '("\\.j2\\'" . jinja2-mode))
 
 ;; see matching pairs of parentheses
 (show-paren-mode 1)
 
-;; spaces instead of tabs
+;; use spaces instead of tabs
 (setq-default indent-tabs-mode nil)
 
-;; ediff split mode
+;; ediff split mode horizontally
 (setq ediff-split-window-function 'split-window-horizontally)
 
 ;; ediff don't care about whitespaces
@@ -100,3 +102,10 @@
 
 ;; global undo tree mode
 (global-undo-tree-mode)
+
+;; zone when idle after 2 minutes
+(require 'zone)
+(zone-when-idle 120)
+
+;; start the calendar with Monday
+(setq calendar-week-start-day 1)
