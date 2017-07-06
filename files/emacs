@@ -5,7 +5,7 @@
 (global-linum-mode 1)
 
 ;; C-n adds new lines at the end of the buffer
-(setq next-line-add-newlines 1)
+;; (setq next-line-add-newlines 1)
 
 ;; no startup screen
 (setq inhibit-startup-screen 1)
@@ -33,7 +33,6 @@
                      undo-tree
                      python-mode
                      jinja2-mode
-                     magit
 		     ))
 
 ;; package repos to install from
@@ -103,9 +102,9 @@
 ;; global undo tree mode
 (global-undo-tree-mode)
 
-;; zone when idle after 2 minutes
+;; zone when idle after 5 minutes
 (require 'zone)
-(zone-when-idle 120)
+(zone-when-idle 300)
 
 ;; start the calendar with Monday
 (setq calendar-week-start-day 1)

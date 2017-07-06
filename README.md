@@ -1,7 +1,5 @@
 # Ansible role that manages UNIX/Linux accounts
 
-[![build status](https://gitlab.com/stiron/ansible-users/badges/master/build.svg)](https://gitlab.com/stiron/ansible-users/commits/master)
-
 ## Requirements
 
 This module requires Ansible 2.x version.
@@ -19,9 +17,9 @@ users_private:
 users:
   - name: tmolnar
     home: /home/tmolnar
-    manage_vimrc: yes # Either yes or leave this key out
-    manage_tmuxconf: yes # Either yes or leave this key out
-	manage_emacs: yes # Either yes or leave this key out
+    manage_vimrc: yes    # Either 'yes' or leave this key out
+    manage_tmuxconf: yes # Either 'yes' or leave this key out
+	manage_emacs: yes    # Either 'yes' or leave this key out
     authorized:
         - ed25519 abc123 user@host
         - rsa abc345 user2@host
@@ -47,9 +45,9 @@ users:
 
 There are two main hashes for this role:
 
-**users:** the content will be logged
+**users:** the content will be logged to stdout or file
 
-**users_private:** the content will **NOT** be logged
+**users_private:** the content will **NOT** be logged neither to stdout nor file
 
 The possible content:
 
