@@ -77,6 +77,7 @@
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
     mode: 0644
+    backup: yes
   with_items: "{{ users }}"
   tags:
     - users
@@ -102,6 +103,7 @@
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
     mode: 0644
+    backup: yes
   with_items: "{{ users }}"
   when: item.manage_vimrc is defined 
   tags:
@@ -115,6 +117,7 @@
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
     mode: 0644
+    backup: yes
   with_items: "{{ users }}"
   when: item.manage_tmuxconf is defined 
   tags:
