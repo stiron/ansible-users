@@ -31,7 +31,19 @@ There are two main hashes for this role:
 
 **users:** the content will be logged to stdout or file
 
+```
+users:
+  - name: tmolnar
+    home: /home/tmolnar
+```
+
 **users_private:** the content will **NOT** be logged neither to stdout nor file
+
+```
+users_private:
+  - name: tmolnar
+    password: 'hashed-password-here'
+```
 
 The possible content:
 
@@ -44,20 +56,6 @@ The possible content:
 #### users_private
 
 `password` - encrypted password
-
-### Optional variables
-
-#### users
-
-`shell` - the default shell of the user (defaults to /bin/bash)
-
-`authorized` - a list of the pub keys of the user to be deployed
-
-`public_keys` - a list of hashes about the public key file URL and content
-
-#### users_private
-
-`private_keys` - a list of hashes about the private key file URL and content
 
 ## Examples
 
