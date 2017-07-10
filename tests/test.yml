@@ -14,9 +14,6 @@
       - name: testuser1
         home: /home/testuser1
         shell: /bin/bash
-        bashrc_lines: |
-          # Perlbrew
-          source ~/perl5/perlbrew/etc/bashrc
       - name: testuser2
         home: /home/testuser2
         authorized:
