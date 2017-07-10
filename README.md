@@ -45,18 +45,6 @@ users_private:
     password: 'hashed-password-here'
 ```
 
-The possible content:
-
-#### users
-
-`name` - the name of the user
-
-`home` - the home directory of the user
-
-#### users_private
-
-`password` - encrypted password
-
 ## Examples
 
 ```
