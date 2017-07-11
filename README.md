@@ -1,48 +1,32 @@
 # Ansible role that manages UNIX/Linux accounts
 
+This role adds a basic account management via Ansible.
+
 ## Requirements
 
 This module requires Ansible 2.x version.
 
 ## Role variables
 
+There are **two hashes as role variables** for the convenience and readability:
+
 ```
-users_private:
+users_private: # Values here will NOT be logged
   - name: tmolnar
-    password: 'hashed-password-here'
-    private_keys:
+    password: 'password-here'
+    private_keys: # Optional parameter
         - file: /home/tmolnar/.ssh/key.priv
           content: xxxyyy
     
-users:
+users: # Values here will be echoed and logged
   - name: tmolnar
     home: /home/tmolnar
-    authorized:
+    authorized: # Optional parameter
         - ed25519 abc123 user@host
         - rsa abc345 user2@host
-    public_keys:
+    public_keys: # Optional parameter
         - file: /home/tmolnar/.ssh/key.pub
           content: yyyzzz
-```
-
-### Mandatory variables
-
-There are two main hashes for this role:
-
-**users:** the content will be logged to stdout or file
-
-```
-users:
-  - name: tmolnar
-    home: /home/tmolnar
-```
-
-**users_private:** the content will **NOT** be logged neither to stdout nor file
-
-```
-users_private:
-  - name: tmolnar
-    password: 'hashed-password-here'
 ```
 
 ## Examples
@@ -55,7 +39,7 @@ users_private:
 
 ## Dependencies
 
-None
+There are no external dependencies for this role.
 
 ## License
 
